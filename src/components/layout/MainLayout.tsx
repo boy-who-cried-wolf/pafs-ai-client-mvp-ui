@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   HomeIcon,
   ArrowUpTrayIcon,
@@ -48,11 +49,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <img
-                src="/logo.png"
-                alt="PAFS-AI"
-                className="h-8 w-auto"
-              />
+              <Link to="/">
+                <img
+                  src="/logo.png"
+                  alt="PAFS-AI"
+                  className="h-8 w-auto"
+                />
+              </Link>
             </div>
             <div className="flex items-center space-x-4">
               {/* Notifications */}
@@ -135,13 +138,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.path}
+                  <Link
+                    to={item.path}
                     className="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors"
                   >
                     <item.icon className="w-5 h-5" />
                     <span>{item.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
