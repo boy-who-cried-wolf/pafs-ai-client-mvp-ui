@@ -42,9 +42,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-900">
       {/* Top Navigation */}
-      <nav className="bg-white shadow-sm">
+      <nav className="bg-gray-800 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -59,7 +59,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <div className="relative">
                 <button
                   onClick={() => setShowNotifications(!showNotifications)}
-                  className="p-2 text-gray-600 hover:text-gray-900 relative"
+                  className="p-2 text-gray-300 hover:text-white relative"
                 >
                   <BellIcon className="w-6 h-6" />
                   {unreadCount > 0 && (
@@ -75,17 +75,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg overflow-hidden z-50"
+                      className="absolute right-0 mt-2 w-80 bg-gray-800 rounded-lg shadow-lg overflow-hidden z-50 border border-gray-700"
                     >
-                      <div className="p-4 border-b">
-                        <h3 className="text-lg font-semibold">Notifications</h3>
+                      <div className="p-4 border-b border-gray-700">
+                        <h3 className="text-lg font-semibold text-white">Notifications</h3>
                       </div>
                       <div className="max-h-96 overflow-y-auto">
                         {notifications.map((notification) => (
                           <div
                             key={notification.id}
-                            className={`p-4 border-b hover:bg-gray-50 cursor-pointer ${
-                              !notification.read ? 'bg-blue-50' : ''
+                            className={`p-4 border-b border-gray-700 hover:bg-gray-700 cursor-pointer ${
+                              !notification.read ? 'bg-blue-900/50' : ''
                             }`}
                             onClick={() => {
                               setNotifications((prev) =>
@@ -99,14 +99,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                           >
                             <div className="flex justify-between items-start">
                               <div>
-                                <h4 className="font-medium">
+                                <h4 className="font-medium text-white">
                                   {notification.title}
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-300">
                                   {notification.message}
                                 </p>
                               </div>
-                              <span className="text-xs text-gray-500">
+                              <span className="text-xs text-gray-400">
                                 {notification.time}
                               </span>
                             </div>
@@ -119,7 +119,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               </div>
 
               {/* User Menu */}
-              <button className="flex items-center space-x-2 p-2 text-gray-600 hover:text-gray-900">
+              <button className="flex items-center space-x-2 p-2 text-gray-300 hover:text-white">
                 <UserIcon className="w-6 h-6" />
                 <span className="hidden md:block">John Doe</span>
               </button>
@@ -130,14 +130,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
       <div className="flex">
         {/* Side Navigation */}
-        <aside className="w-64 bg-white shadow-sm h-[calc(100vh-4rem)] fixed">
+        <aside className="w-64 bg-gray-800 border-r border-gray-700 h-[calc(100vh-4rem)] fixed">
           <nav className="mt-8 px-4">
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.path}
-                    className="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors"
+                    className="flex items-center space-x-3 px-4 py-3 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors"
                   >
                     <item.icon className="w-5 h-5" />
                     <span>{item.label}</span>
