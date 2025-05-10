@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
               size="lg"
               icon={<ArrowRightIcon className="w-5 h-5" />}
               className="bg-white text-primary-900 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-              href="/onboarding"
+              to="/onboarding"
             >
               Get Started
             </Button>
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               variant="secondary"
               size="lg"
               className="bg-white/10 text-white border-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
-              href="/#demo"
+              to="/#demo"
             >
               Book a Free Consultation
             </Button>

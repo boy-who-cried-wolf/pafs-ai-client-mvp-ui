@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Features', href: '/#features' },
-    { name: 'Demo', href: '/#demo' },
-    { name: 'Testimonials', href: '/#testimonials' },
-    { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Documents', href: '/documents' },
+    { name: 'Home', to: '/' },
+    { name: 'Features', to: '/#features' },
+    { name: 'Demo', to: '/#demo' },
+    { name: 'Testimonials', to: '/#testimonials' },
+    { name: 'Dashboard', to: '/dashboard' },
   ];
 
   return (
@@ -20,21 +20,23 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-primary-600">PAFS-AI</span>
+            <Link to="/" className="text-2xl font-bold text-primary-600">
+              PAFS-AI
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.to}
                 className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" to="/onboarding">
               Get Started
             </Button>
           </div>
@@ -60,16 +62,16 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.to}
                   className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <Button variant="primary" size="sm" fullWidth>
+              <Button variant="primary" size="sm" fullWidth to="/onboarding">
                 Get Started
               </Button>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Link } from 'react-router-dom';
 
 type BaseButtonProps = {
   variant?: 'primary' | 'secondary' | 'accent' | 'icon';
@@ -8,7 +9,7 @@ type BaseButtonProps = {
   fullWidth?: boolean;
   isLoading?: boolean;
   loadingText?: string;
-  href?: string;
+  to?: string;
   disabled?: boolean;
 };
 
@@ -27,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   loadingText,
   className,
   disabled,
-  href,
+  to,
   ...props
 }) => {
   const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
@@ -71,15 +72,15 @@ const Button: React.FC<ButtonProps> = ({
     className
   );
 
-  if (href) {
+  if (to) {
     return (
-      <a
-        href={href}
+      <Link
+        to={to}
         className={buttonClasses}
         {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {buttonContent}
-      </a>
+      </Link>
     );
   }
 
