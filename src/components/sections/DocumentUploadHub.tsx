@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {
+  DocumentTextIcon,
   ArrowUpTrayIcon,
-  ChartBarIcon,
-  ClipboardDocumentListIcon,
-  BuildingOffice2Icon,
+  CheckCircleIcon,
+  ClockIcon,
+  ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
-import UploadModal, { CategorizedFile } from '../modals/UploadModal';
+import Button from '../ui/Button';
+import UploadModal from '../modals/UploadModal';
+import { CategorizedFile } from '../modals/UploadModal';
 
 const DocumentUploadHub: React.FC = () => {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
@@ -47,7 +49,7 @@ const DocumentUploadHub: React.FC = () => {
         <div className="p-4 bg-gray-800 rounded-xl border border-gray-700">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center">
-              <ChartBarIcon className="w-5 h-5 text-blue-400" />
+              <ArrowUpTrayIcon className="w-5 h-5 text-blue-400" />
             </div>
             <h3 className="font-semibold text-white">Financial Snapshot</h3>
           </div>
@@ -72,7 +74,7 @@ const DocumentUploadHub: React.FC = () => {
         <div className="p-4 bg-gray-800 rounded-xl border border-gray-700">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center">
-              <ClipboardDocumentListIcon className="w-5 h-5 text-blue-400" />
+              <ArrowUpTrayIcon className="w-5 h-5 text-blue-400" />
             </div>
             <h3 className="font-semibold text-white">Tasks Pending</h3>
           </div>

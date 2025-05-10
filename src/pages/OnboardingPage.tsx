@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
-  EnvelopeIcon,
-  UserIcon,
-  DocumentIcon,
-  FlagIcon,
   ArrowRightIcon,
   ArrowLeftIcon,
   ArrowUpTrayIcon,
@@ -14,8 +10,6 @@ import {
   BuildingOffice2Icon,
   BanknotesIcon,
   DocumentTextIcon,
-  UserCircleIcon,
-  ArrowPathIcon,
   CheckCircleIcon,
   XCircleIcon,
   ShieldCheckIcon,
@@ -25,6 +19,8 @@ import {
   BriefcaseIcon,
   HeartIcon,
   GlobeAltIcon,
+  EnvelopeIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline';
 import Button from '../components/ui/Button';
 import UploadModal, { CategorizedFile } from '../components/modals/UploadModal';
